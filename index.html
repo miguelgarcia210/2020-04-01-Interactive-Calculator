@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Simple Tip Calculator</title>
 </head>
 <body>
 
+<main>
+    <section class="form-container">
+        <h1 class="title">Simple Tip Calculator</h1>
+        <form id="tip-calculator-form" class="form">
+            <div class="input">
+                <div>
+                    <label for="billAmount">Bill Amount</label><span>: </span>
+                </div>
+                <div>
+                    <span>$</span>
+                    <input id="billAmount" name="bill_amount" type="number" min="0" onkeyup="checkInputs()">
+                </div>
+            </div>
+            <br>
+            <div class="input">
+                <div>
+                    <label for="tipPercentage">Tip</label><span>: </span>
+                </div>
+                <div>
+                    <span>%</span>
+                    <input id="tipPercentage" name="tip_percentage" type="number" min="0" onkeyup="checkInputs()">
+                </div>
+            </div>
+            <br>
+
+            <input id="submit-form-btn" type="submit" value="Calculate" class="submit-form-btn calc">
+        </form>
+    </section>
+    <section id="result-container" class="result-container hidden">
+        <div>
+            <span>Tip Amount: </span>
+        </div>
+        <div>
+            <span>Grand Total: </span>
+        </div>
+    </section>
+</main>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
