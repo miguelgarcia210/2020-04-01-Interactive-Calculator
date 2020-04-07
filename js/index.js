@@ -48,14 +48,31 @@ function calculateTip() {
 /*
     showResult(resultTip):
     - set result display to 'show'
+    - hides acnh btn
  */
 function showResult(resultTip) {
+    $('#acnhLink').addClass("hidden");
     result().removeClass("hidden");
-    console.log(resultTip);
+    $('main').addClass("r-main");
+    $('#form-container').addClass("r-form-container");
+    $('#result-container').addClass("result-container");
+    $('#receiptSubtotal').next().text(`$${amount().val()}`);
+    $('#receiptTipPercentage').next().text(`${percentage().val()}%`);
+    $('#receiptTip').next().text(`$${resultTip}`);
+    $('#receiptTotal').next().text(`$${+amount().val() + resultTip}`);
 }
 
+/*
+    hideResult:
+    - shows acnh btn
+    - hides result
+ */
 function hideResult() {
-    result().addClass("")
+    $('#acnhLink').removeClass("hidden");
+    result().addClass("hidden");
+    $('main').removeClass("r-main");
+    $('#form-container').removeClass("r-form-container");
+    $('#result-container').removeClass("result-container");
 }
 
 /*
@@ -79,12 +96,12 @@ function recalculateTip() {
 function checkStatus() {
     let btn = submitBtn();
     if (btn.hasClass("calc")) {
-        // calculateTip();
-        displayResult(calculateTip());
+        showResult(calculateTip());
         btn.val("Re-calculate");
         btn.removeClass("calc");
         btn.addClass("re-calc");
     } else {
+        hideResult();
         recalculateTip();
         checkInputs();
         btn.val("Calculate");
