@@ -1,0 +1,14 @@
+# Mac generated files
+**/.DS_Store
+
+# Intellij
+.idea/*
+*.iml
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
